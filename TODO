@@ -20,18 +20,19 @@ Penginstallan Tools Development:
     Kenapa pake git? Karena biar memudahkan kita merekam/men-track apa saja yang kita lakukan,
     Jadi sewaktu2 kita lupa apa saja yang kita lakukan, kita bisa lihat di history commit git-nya.
     Atau sewaktu2 program kita error, trs kita ingin me restore ke state dimana program kita belum error, juga bisa dilakukan menggunakan git.
-    ☐ Download installer di @url: https://git-scm.com/download/win
-    ☐ Buka installer
-    ☐ Next next next
-    ☐ Kalo udh, di vscode, buka command pallete dengan shortcut: ctrl + shift + P (default)
-    ☐ ketik: terminal default shell
-    ☐ pilih: Terminal: Select Default Shell
-    ☐ Pilih yang Git Bash
-    ☐ Trs buka terminal dgn tekan shortcut: ctrl + ` (dibawah tombol esc)
-    ☐ Trs di terminal ketik @perintah: git config user.email (email github kamu: misal azmi@gmail.com, jadinya nanti: git config user.email azmil@gmail.com)
-    ☐ Ketik lagi di terminal @perintah: git config user.name (username github kamu: misal azmigithub1, jadinya nanti: git config user.name azmilgithub1)
-    ☐ skrg pergi ke bagian source control, di sidebar, letaknya di bawah search (tanda kaca pembesar), atau bisa dengan shortcut: ctrl + shift + G
-    ☐ Pilih initialize Repository
-    ☐ Kalo udh stage changes file yang ada disitu (tanda plus) @see: './screenshot/gitStageChange.PNG'
-    ☐ Ketik message sesuai apa yang kamu lakukan, misal: Menambahkan TODO
-    ☐ Kalo sudah tekan: ctrl + Enter (untuk commit, commit itu save perubahan yang kita buat ke git, biar bisa di track di git)
+    ✔ Download installer di @url: https://git-scm.com/download/win @done(20-11-25 06:09)
+    ✔ Buka installer @done(20-11-25 06:09)
+    ✔ Next next next @done(20-11-25 06:09)
+    ✔ Kalo udh, di vscode, buka command pallete dengan shortcut: ctrl + shift + P (default) @done(20-11-25 06:09)
+    ✔ ketik: terminal default shell @done(20-11-25 06:09)
+    ✔ pilih: Terminal: Select Default Shell @done(20-11-25 06:09)
+    ✔ Pilih yang Git Bash @done(20-11-25 06:09)
+    ✔ Trs buka terminal dgn tekan shortcut: ctrl + ` (dibawah tombol esc) @done(20-11-25 06:09)
+    ✔ Trs di terminal ketik @perintah: git config user.email (email github kamu: misal azmi@gmail.com, jadinya nanti: git config user.email azmil@gmail.com) @done(20-11-25 06:09)
+    ✔ Ketik lagi di terminal @perintah: git config user.name (username github kamu: misal azmigithub1, jadinya nanti: git config user.name azmilgithub1) @done(20-11-25 06:09)
+    ✔ skrg pergi ke bagian source control, di sidebar, letaknya di bawah search (tanda kaca pembesar), atau bisa dengan shortcut: ctrl + shift + G @done(20-11-25 06:09)
+    ✔ Pilih initialize Repository @done(20-11-25 06:09)
+    ✔ Kalo udh stage changes file yang ada disitu (tanda plus) @see: './screenshot/gitStageChange.PNG' @done(20-11-25 06:09)
+    ✔ Ketik message sesuai apa yang kamu lakukan, misal: Menambahkan TODO @done(20-11-25 06:09)
+    ✔ Kalo sudah tekan: ctrl + Enter (untuk commit, commit itu save perubahan yang kita buat ke git, biar bisa di track di git) @done(20-11-25 06:09)
+    ✔ Kalo berhasil, di source control nya, file yg tadi stage change akan hilang di source control, jika filenya kamu ubah lagi setelah di commit, nanti akan muncul lagi di source control, itu tandanya belum di-track/commit ke git. @done(20-11-25 06:10)
