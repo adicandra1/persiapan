@@ -1,0 +1,35 @@
+Penginstallan Tools Development:
+  VSCode:
+    Extensions:
+      ☐ TODO+ @extensionID: fabiospampinato.vscode-todo-plus
+      ☐ PHP Intelphense
+      ☐ PHP Psalm Static Analysis
+      ☐ PHP XDebug
+      
+      
+  XAMPP:
+  Composer:
+    @alasan: 
+    Composer adalah package manager yang kita gunakan untuk mengatur dependency pada program PHP kita.
+    Jadi sebenarnya apa sih Dependency itu?
+    Dependency itu ketika program kita menggunakan code yang dibuat orang lain (seperti framework Codeigniter, atau DOMPDF),
+    Intinya composer ini nantinya yang membantu kita mengatur code2 org lain tersebut.
+    ☐ 
+  Git:
+    @alasan: 
+    Kenapa pake git? Karena biar memudahkan kita merekam/men-track apa saja yang kita lakukan,
+    Jadi sewaktu2 kita lupa apa saja yang kita lakukan, kita bisa lihat di history commit git-nya.
+    Atau sewaktu2 program kita error, trs kita ingin me restore ke state dimana program kita belum error, juga bisa dilakukan menggunakan git.
+    ☐ Download installer di @url: https://git-scm.com/download/win
+    ☐ Buka installer
+    ☐ Next next next
+    ☐ Kalo udh, di vscode, buka command pallete dengan shortcut: ctrl + shift + P (default)
+    ☐ ketik: terminal default shell
+    ☐ pilih: Terminal: Select Default Shell
+    ☐ Pilih yang Git Bash
+    ☐ Trs buka terminal dgn tekan shortcut: ctrl + ` (dibawah tombol esc)
+    ☐ skrg pergi ke bagian source control, di sidebar, letaknya di bawah search (tanda kaca pembesar), atau bisa dengan shortcut: ctrl + shift + G
+    ☐ Pilih initialize Repository
+    ☐ Kalo udh stage changes file yang ada disitu (tanda plus) @see: './screenshot/gitStageChange.PNG'
+    ☐ Ketik message sesuai apa yang kamu lakukan, misal: Menambahkan TODO
+    ☐ Kalo sudah tekan: ctrl + Enter (untuk commit, commit itu save perubahan yang kita buat ke git, biar bisa di track di git)
