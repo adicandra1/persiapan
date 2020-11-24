@@ -28,6 +28,8 @@ Penginstallan Tools Development:
     ☐ pilih: Terminal: Select Default Shell
     ☐ Pilih yang Git Bash
     ☐ Trs buka terminal dgn tekan shortcut: ctrl + ` (dibawah tombol esc)
+    ☐ Trs di terminal ketik @perintah: git config user.email (email github kamu: misal azmi@gmail.com, jadinya nanti: git config user.email azmil@gmail.com)
+    ☐ Ketik lagi di terminal @perintah: git config user.name (username github kamu: misal azmigithub1, jadinya nanti: git config user.name azmilgithub1)
     ☐ skrg pergi ke bagian source control, di sidebar, letaknya di bawah search (tanda kaca pembesar), atau bisa dengan shortcut: ctrl + shift + G
     ☐ Pilih initialize Repository
     ☐ Kalo udh stage changes file yang ada disitu (tanda plus) @see: './screenshot/gitStageChange.PNG'
