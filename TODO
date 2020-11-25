@@ -1,38 +1,58 @@
-Penginstallan Tools Development:
+Step 0: Penginstallan Tools Development:
   VSCode:
     Extensions:
-      ☐ TODO+ @extensionID: fabiospampinato.vscode-todo-plus
-      ☐ PHP Intelphense
-      ☐ PHP Psalm Static Analysis
-      ☐ PHP XDebug
-      
+      @lakukan: cari ekstensi-ekstensi ini dan install 
+      (@tips: tinggal pastekan extensionID dari tiap2 ekstensi di bawah ini di kolom pencarian extension sidebar)
+      ☐ TODO+ @extensionID: fabiospampinato.vscode-todo-plus @alasan: Kita pake ekstensi ini untuk mencatat apa saja yg mau dilakukan, sangat memudahkan kita membuat file TODO seperti ini.
+      PHP Intelphense: @extensionID: bmewburn.vscode-intelephense-client
+        ☐ Setelah install, menuju ke sidebar Exstension (atau @tekan: ctrl + shift + X)
+        ☐ Di kolom pencarian @ketik: @builtin php
+        ☐ Trs yang PHP Language Features di disable saja
+      ☐ PHP XDebug @extensionID: felixfbecker.php-debug      
       
   XAMPP:
+    ☐ Uninstall versi yang lama
+    ☐ Install versi terbaru (php yang versi 7.4) @url: https://www.apachefriends.org/xampp-files/7.4.12/xampp-windows-x64-7.4.12-0-VC15-installer.exe
+
   Composer:
     @alasan: 
     Composer adalah package manager yang kita gunakan untuk mengatur dependency pada program PHP kita.
     Jadi sebenarnya apa sih Dependency itu?
     Dependency itu ketika program kita menggunakan code yang dibuat orang lain (seperti framework Codeigniter, atau DOMPDF),
     Intinya composer ini nantinya yang membantu kita mengatur code2 org lain tersebut.
-    ☐ 
+    @catatan: XAMPP harus terinstall dulu
+    ☐ Install composer @url:https://getcomposer.org/Composer-Setup.exe
+    ☐ Ikuti instruksi(intinya tinggal next-next aja) @url:https://thecodedeveloper.com/install-composer-windows-xampp/
+    ☐ @catatan: Di step yang milih php, pilih php yg dari xampp (C:\xampp\php\php.exe), trs di centang checklist nya
+    ☐ kalo udh selesai, Sign out windows, trs sign in lagi.
+
   Git:
     @alasan: 
     Kenapa pake git? Karena biar memudahkan kita merekam/men-track apa saja yang kita lakukan,
     Jadi sewaktu2 kita lupa apa saja yang kita lakukan, kita bisa lihat di history commit git-nya.
     Atau sewaktu2 program kita error, trs kita ingin me restore ke state dimana program kita belum error, juga bisa dilakukan menggunakan git.
-    ✔ Download installer di @url: https://git-scm.com/download/win @done(20-11-25 06:09)
-    ✔ Buka installer @done(20-11-25 06:09)
-    ✔ Next next next @done(20-11-25 06:09)
-    ✔ Kalo udh, di vscode, buka command pallete dengan shortcut: ctrl + shift + P (default) @done(20-11-25 06:09)
-    ✔ ketik: terminal default shell @done(20-11-25 06:09)
-    ✔ pilih: Terminal: Select Default Shell @done(20-11-25 06:09)
-    ✔ Pilih yang Git Bash @done(20-11-25 06:09)
-    ✔ Trs buka terminal dgn tekan shortcut: ctrl + ` (dibawah tombol esc) @done(20-11-25 06:09)
-    ✔ Trs di terminal ketik @perintah: git config user.email (email github kamu: misal azmi@gmail.com, jadinya nanti: git config user.email azmil@gmail.com) @done(20-11-25 06:09)
-    ✔ Ketik lagi di terminal @perintah: git config user.name (username github kamu: misal azmigithub1, jadinya nanti: git config user.name azmilgithub1) @done(20-11-25 06:09)
-    ✔ skrg pergi ke bagian source control, di sidebar, letaknya di bawah search (tanda kaca pembesar), atau bisa dengan shortcut: ctrl + shift + G @done(20-11-25 06:09)
-    ✔ Pilih initialize Repository @done(20-11-25 06:09)
-    ✔ Kalo udh stage changes file yang ada disitu (tanda plus) @see: './screenshot/gitStageChange.PNG' @done(20-11-25 06:09)
-    ✔ Ketik message sesuai apa yang kamu lakukan, misal: Menambahkan TODO @done(20-11-25 06:09)
-    ✔ Kalo sudah tekan: ctrl + Enter (untuk commit, commit itu save perubahan yang kita buat ke git, biar bisa di track di git) @done(20-11-25 06:09)
-    ✔ Kalo berhasil, di source control nya, file yg tadi stage change akan hilang di source control, jika filenya kamu ubah lagi setelah di commit, nanti akan muncul lagi di source control, itu tandanya belum di-track/commit ke git. @done(20-11-25 06:10)
+    ☐ Download installer di @url:https://git-scm.com/download/win
+    ☐ Buka installer
+    ☐ Next next next
+    ☐ Kalo udh, di vscode, buka command pallete dengan shortcut: ctrl + shift + P (default)
+    ☐ ketik: terminal default shell
+    ☐ pilih: Terminal: Select Default Shell
+    ☐ Pilih yang Git Bash
+    ☐ Trs buka terminal dgn tekan shortcut: ctrl + ` (dibawah tombol esc)
+    ☐ Trs di terminal ketik @perintah: git config user.email (email github kamu: misal azmi@gmail.com, jadinya nanti: git config user.email azmil@gmail.com)
+    ☐ Ketik lagi di terminal @perintah: git config user.name (username github kamu: misal azmigithub1, jadinya nanti: git config user.name azmilgithub1)
+    ☐ skrg pergi ke bagian source control, di sidebar, letaknya di bawah search (tanda kaca pembesar), atau bisa dengan shortcut: ctrl + shift + G
+    ☐ Pilih initialize Repository
+    ☐ Kalo udh stage changes file yang ada disitu (tanda plus) @see: './screenshot/gitStageChange.PNG'
+    ☐ Ketik message sesuai apa yang kamu lakukan, misal: Menambahkan TODO
+    ☐ Kalo sudah tekan: ctrl + Enter (untuk commit, commit itu save perubahan yang kita buat ke git, biar bisa di track di git)
+    ☐ Kalo berhasil, di source control nya, file yg tadi stage change akan hilang di source control, jika filenya kamu ubah lagi setelah di commit, nanti akan muncul lagi di source control, itu tandanya belum di-track/commit ke git.
+
+Step 1: FrontEnd:
+  ☐ Buat folder bernama frontend di folder ini
+  Install CodeIgniter 4:
+    ☐ Download codeigniter 4 @url:https://github.com/codeigniter4/framework/archive/v4.0.4.zip
+    ☐ Extract ke dalam folder frontend
+    ☐ 
+  
+  
