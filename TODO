@@ -1,5 +1,13 @@
 Step 0: Penginstallan Tools Development:
   VSCode:
+    @tips: VSCode versi windows kadang suka ngelag gitu, ini bisa diakali dengan step dibawah:
+    ☐ Exclude folder2 ini dari Antivirus (Windows Defender, dll):
+      @file: C:\Program Files\Microsoft VS Code , C:\Users\{NamaUserMu}\AppData\Roaming\Code , trs folder project ini.
+    Ubah target shortcut VSCode yang ada di Start:
+      ☐ Tekan tokbol Windows
+      ☐ Ketik Visual Studio Code, klik kanan, pilih open file location
+      ☐ Itu akan membawa km ke file shortcut VSCode, klik kanan file tersebut, lalu pilih Properties
+      ☐ Di tab Shortcut, bagian Target, tambahkan args ini: --disable-renderer-accessibility   , setelah tanda petik @screenshot: '../persiapan/screenshot/UbahShortcutVSCode.jpg'
     Extensions:
       @lakukan: cari ekstensi-ekstensi ini dan install 
       (@tips: tinggal pastekan extensionID dari tiap2 ekstensi di bawah ini di kolom pencarian extension sidebar)
@@ -39,20 +47,265 @@ Step 0: Penginstallan Tools Development:
     ☐ pilih: Terminal: Select Default Shell
     ☐ Pilih yang Git Bash
     ☐ Trs buka terminal dgn tekan shortcut: ctrl + ` (dibawah tombol esc)
-    ☐ Trs di terminal ketik @perintah: git config user.email (email github kamu: misal azmi@gmail.com, jadinya nanti: git config user.email azmil@gmail.com)
-    ☐ Ketik lagi di terminal @perintah: git config user.name (username github kamu: misal azmigithub1, jadinya nanti: git config user.name azmilgithub1)
-    ☐ skrg pergi ke bagian source control, di sidebar, letaknya di bawah search (tanda kaca pembesar), atau bisa dengan shortcut: ctrl + shift + G
+    ☐ Trs di terminal ketik @perintah: git config --global user.email (email github kamu: misal azmi@gmail.com, jadinya nanti: git config user.email azmil@gmail.com)
+    ☐ Ketik lagi di terminal @perintah: git config --global user.name (username github kamu: misal azmigithub1, jadinya nanti: git config user.name azmilgithub1)
+    ☐ skrg pergi ke bagian source control, di sidebar, letaknya di bawah search (tanda kaca pembesar), atau bisa dengan shortcut: ctrl + shift + G (kalo pake Ekstensi GitLens mencet G nya 2kali)
     ☐ Pilih initialize Repository
     ☐ Kalo udh stage changes file yang ada disitu (tanda plus) @see: './screenshot/gitStageChange.PNG'
     ☐ Ketik message sesuai apa yang kamu lakukan, misal: Menambahkan TODO
     ☐ Kalo sudah tekan: ctrl + Enter (untuk commit, commit itu save perubahan yang kita buat ke git, biar bisa di track di git)
     ☐ Kalo berhasil, di source control nya, file yg tadi stage change akan hilang di source control, jika filenya kamu ubah lagi setelah di commit, nanti akan muncul lagi di source control, itu tandanya belum di-track/commit ke git.
+    Install Ekstensi GitLens (tidak harus):
+      @alasan: untuk melihat history perubahan/commit di project kita, apa saja yang kita lakukan, file apa saja yang berubah.
+      ☐ Di VSCode, ke Sidebar Ekstensi, cari:
+      ☐ Gitlens @extensionID: eamodio.gitlens
+      ☐ Install
+      ☐ Kalo udh install di reload window (ctrl + shift + P , terus ketik Reload Window, enter)
+      ☐ Kalo sudah, setting Ekstensi Gitlens nya:
+      ☐ Ekstensi ini agak "rame", jadi kita pake Zen Mode aja biar agak bersih, tekan ctrl + shift + P, ketik Gitlens Zen Mode, trs pilih apa yg keluar
+      ☐ Nantinya akan seperti ini: Lihat @screenshot: './screenshot/GitLensCommitHistory.jpg'
 
 Step 1: FrontEnd:
-  ☐ Buat folder bernama frontend di folder ini
   Install CodeIgniter 4:
     ☐ Download codeigniter 4 @url:https://github.com/codeigniter4/framework/archive/v4.0.4.zip
-    ☐ Extract ke dalam folder frontend
-    ☐ 
-  
-  
+    ☐ Buka zip yg didownload td
+    ☐ Copy semua file yang ada di dalam folder framework-4.0.4 (folder framework-4.0.4 gausah ikutan) ke folder frontend.
+    ☐ Di VSCode, klik menu file, trs pilih Add Folder To Workspace, pilih folder 'frontend', klik Add. lihat @screenshot: './screenshot/VSCodeAddFolderToWorkspace.PNG';
+    ☐ Akan muncul folder baru di sidebar. lihat @screenshot: './screenshot/AddFolderToWorkspaceSuccess.PNG'
+    Inisialisasi Git di folder 'frontend': 
+      ☐ Buka terminal dengan menekan: ctrl + shift + ` (tombol dibawah esc)
+      ☐ pilih yang frontend.
+      ☐ ketikan @perintah: git init
+      ☐ Ke sidebar Source Control (atau: ctrl + shift + G)
+      ☐ Di bagian frontend, klik yang stage all changes. Lihat @screenshot: './screenshot/StageAllChanges_frontend.png.jpg'
+      ☐ Ketikan message yang relevan di message field bagian frontend, misal 'install codeigniter 4 ke frontend'
+      ☐ Kalo sudah tekan: ctrl + Enter (untuk commit, commit itu save perubahan yang kita buat ke git, biar bisa di track di git)
+
+    Test Codeigniter 4 udh bisa jalan atau engga:
+      ☐ Masih di terminal yang tadi, ketikan @perintah: php spark serve
+      ☐ Nanti akan ada @error: Uncaught Error: Call to undefined function CodeIgniter\locale_set_default()
+      ☐ Kalau @error seperti diatas, edit file C:\xampp\php\php.ini (pake notepad atau apa terserah)
+      ☐ Cari line (pake ctrl + F aja trs pastekan) yang begini: ;extension=intl 
+      ☐ Delete ; didepan exstension-intl
+      ☐ Trs save
+      ☐ Ke vscode lagi, ke terminal yang tadi, ketikan lagi @perintah: php spark serve
+      ☐ Kalo udh bener, nanti gaada @error lagi dan keluar seperti @screenshot: './screenshot/Codeigniter4FixPHPINI.PNG'
+      ☐ Coba buka browser trs ke @alamat: http://localhost:8080 , nanti muncul homepage Codeigniter 4, brarti udh terinstall codeigniternya
+      ☐ Kembali ke VSCode nya, trs ke terminal tadi, matikan server test tadi dengan klik terminal td, trs tekan ctrl + C
+
+    Buat Virtual Host Apache untuk aplikasi frontend kita:
+      @alasan: 
+      Virtual Host itu alat agar aplikasi kita bisa diakses melalui browser, tadi aplikasi kita bisa diakses di 
+      browser berkat server sementara dari Codeigniter, nah ini kita akan membuatnya jadi permanen (tidak perlu pake perintah: php spark serve lagi)
+      Lalu kenapa ga di taruh di folder C:\xampp\htdocs\ aja, kan disitu bisa otomatis bawaan xampp?
+      Karena Codeigniter 4 ini ga cocok dengan itu, banyak errornya kalo pake htdocs itu, di website resminya juga
+      disarankan pake Virtual Host.
+      @url: https://www.cloudways.com/blog/configure-virtual-host-on-windows-10-for-wordpress/
+      ☐ Edit File C:\xampp\apache\conf\extra\httpd-vhosts.conf
+      ☐ Tambahkan ini di akhir file:
+      <VirtualHost *:80>
+        DocumentRoot "@folderPublicPadaFrontend"
+        ServerName frontend.gdps.locahost
+        <Directory "@folderPublicPadaFrontend">
+          Options Indexes FollowSymLinks
+              AllowOverride All
+              Require all granted
+        </Directory>
+        ErrorLog "logs/frontend-error_log"
+        CustomLog "logs/frontend-access_log" common
+      </VirtualHost>
+
+      @catatan: @folderPublicPadaFrontend diganti folder public di folder frontend, 
+        @tips: cara mengetahui nya, anda bisa membuka VSCode, klik kanan pada folder public di frontend, pilih copy Path. Lihat @screenshot: './screenshot/CopyPublicPath.png'
+        @catatan: 
+          untuk ServerName bisa diganti terserah anda, ini digunakan untuk mengakses dari browser. 
+          diatas dicontohkan sebagai frontend.gdps.localhost , jadi jika kita mengakses alamat ini di localhost, akan menuju folder public di frontend (alias aplikasi ini)
+      
+      ☐ Kalau sudah menambahkan line diatas, maka save lah file tersebut
+      Selanjutnya kita edit file hosts:
+        ☐ Tekan start, cari Notepad, klik kanan, trs di Run as Administrator
+        ☐ Kalau notepad sudah terbuka, open file (ctrl + O) dan arahkan ke file: C:\Windows\System32\drivers\etc\hosts
+        ☐ Kalau sudah terbuka file nya, tambahkan ini di bagian akhir file: 127.0.0.1  frontend.gdps.localhost
+          @catatan: untuk bagian frontend.gdps.localhost itu menyesuaikan ServerName yang tadi dimasukkan di step edit file C:\xampp\apache\conf\extra\httpd-vhosts.conf , harus sama.
+        ☐ Kalau sudah, trs save.
+      
+      Test virtual host sudah bisa diakses atau belum:
+        ☐ Klik Start, cari Xampp, klik kanan, trs di Run as Administrator
+        ☐ Nyalakan server Apache, kalau sudah lalu,
+        ☐ Ke browser, ketikan ServerName yang tadi anda masukkan, misal: frontend.gdps.localhost
+        ☐ Harusnya homepage codeigniter tadi akan tampil.
+
+    Bagian step folder frontend:
+      @catatan: 
+      Copy kan bagian ini (beserta anaknya), ke folder frontend untuk tracking step di git
+      Buat file TODO di frontend, trs copykan bagian ini.
+      Step 0:
+        Konfigurasi CodeIgniter:
+          Database:
+            ☐ Ke folder frontend
+            ☐ Ubah file env menjadi .env
+            ☐ Buka file .env
+            ☐ Ubah @line: '# CI_ENVIRONMENT = production' menjadi: CI_ENVIRONMENT = development @catatan: kita ubah jadi development dulu supaya kalo ada error jadi nampak, kalo production error nya di silent jadi gatau kita nanti.
+            ☐ Buka xampp dengan Run as Administrator
+            ☐ Start Apache dan MySQL
+            ☐ ke browser, lalu ke @url: localhost/phpmyadmin
+            ☐ Buat database buat app frontend ini, terserah namanya apa. misal: gdps_frontend
+            ☐ Kalo udh berhasil buat, ke VSCode lagi, ke file .env yang tadi, rubah bagian # database.default.hostname = localhost ke bawah:
+              @perubahan:
+                # database.default.hostname = localhost , @menjadi: database.default.hostname = localhost
+                # database.default.database = ci4, @menjadi: database.default.database = @namaDatabaseYangTdDiBuat:misal gdps_frontend
+                # database.default.username = root @menjadi: database.default.username = @usernamePhpmyAdmin:misal root
+                # database.default.password = root @menjadi: database.default.password = @password:misal kosong
+                # database.default.DBDriver = MySQLi @menjadi: database.default.DBDriver = MySQLi
+            
+            ☐ Kalo udh, di checklist apa yang udh km lakukan pake shortcut Alt + D. Kayak gini @screenshot: '../persiapan/screenshot/StageChangeFrontendTODOandENV.PNG
+            ☐ Kalo udh ke Source Control Sidebar (ctrl + shift + G (kalo pake Ekstensi GitLens mencet G nya 2kali))
+            ☐ Di bagian frontend, Stage Change File TODO dan env, lihat @screenshot: '../persiapan/screenshot/ToggleDoneTODO+.PNG'
+            ☐ Kasih message commit yang sesuai: misal: Step0: Konfigurasi Codeigniter: Database
+            ☐ ctrl + Enter untuk commit
+
+          BaseURL:
+            ☐ Sekarang ke file frontend\app\Config\App.php
+            ☐ Rubah @line: public $baseURL = 'http://localhost:8080/'; @menjadi: public $baseURL = 'http://frontend.gdps.localhost/'; @catatan: frontend.gdps.localhost adalah ServerName yang kita set saat membuat Virtual Host Apache
+            ☐ Rubah @line: public $indexPage = 'index.php'; @menjadi: public $indexPage = '';
+            ☐ kalo udh, checklist (alt+D) bagian anak BaseURL
+            ☐ Ke source control sidebar kayak tadi
+            ☐ bagian frontend, Stage Change TODO dan App.php
+            ☐ Message commit: Step0: Konfigurasi Codeigniter: BaseURL
+            ☐ ctrl + Enter untuk commit
+      
+      Step 1:
+        Landing Page:
+          @tips: di step ini, ada beberapa video yang aku upload di youtube, km bisa donwload playlist youtube: https://www.youtube.com/playlist?list=PLQzDglXvuuF3bsx1-GH_Bm_ISFl7VcgrH
+          dengan tools youtube playlist donwloader: https://youtubemultidownloader.net/playlists.html
+          View:
+            ☐ Copy semua view landing yang ada di folder '../persiapan/snipplets/app/Views/LandingPage/'
+            ☐ Ke folder frontend/app/Views/LandingPage/
+            ☐ Isikan semua view landing disitu. lihat @screenshot: '../persiapan/screenshot/LandingViewAdd.PNG'
+            ☐ kalo udh checklist bagian langkah View ini @screenshot: '../persiapan/screenshot/ChecklistStep1LandingView.PNG'
+            ☐ Stage change file yang anda tambahkan tadi bersama file TODO ini,
+            ☐ kasih message yang relevan (misal: Step1: LandingPage: View)
+            ☐ commit dengan ctrl + Enter
+          Assets(js/css):
+            ☐ View landing kemarin juga menggunakan file js dan css
+            ☐ Karena folder assets yang kemarin terlalu besar, maka sudah aku compress, coba di download @url: https://drive.google.com/file/d/1_cThSqNb_oNZJI3Wg6B7u171b7KFX7E1/view?usp=sharing
+            ☐ extract zip di folder public/assets/ (kalo folder assets belum ada, mohon dibuat dulu) @screenshot: '../persiapan/screenshot/AddAssetsFrontend.PNG'
+            ☐ kalo udh checklist bagian langkah Assets ini
+            ☐ Stage change file yang anda tambahkan tadi bersama file TODO ini, @screenshot: '../persiapan/screenshot/StageAllChangesAssetsFrontend.PNG'
+            ☐ kasih message yang relevan (misal: Step1: LandingPage: Assets)
+            ☐ commit dengan ctrl + Enter
+          Controller:
+            ☐ Penjelasan untuk Controller LandingPage, bisa dilihat di video youtube: @url: https://youtu.be/BfmwOli8KPg (Controller LandingPage)
+            ☐ Buat File LandingPage.php di app/Controllers/
+            ☐ Template isinya bisa dilihat di @file: '../persiapan/dokumen/codeSnipplets/Controller/LandingPage.php
+            ☐ Copy isi file tersebut ke file yang tadi dibuat
+            ☐ Jika sudah melihat penjelasan dan sudah copy isi file, maka:
+            ☐ Checklist bagian langkah ini
+            ☐ stage change file yang berubah
+            ☐ Kasih message, trs commit
+
+          Buat Class Untuk Nampilin View:
+            @catatan: di penjelasan video sebelumnya, kita tau bahwa function view() bawaan codeIgniter 
+            itu agak kurang rapi kalau diterapin di project gede.
+            skrg kita akan buat Class kita sendiri untuk nampilin view
+            ☐ video penjelasan class View + TemplateEngine @url: https://youtu.be/ECQbZ13ty8w (TemplateEngine Demo)
+            ☐ video penjelasan snippets pembuatan class View @url: https://youtu.be/weRWcVNBbiY (Snipplets Class View)
+            ☐ Buat folder di app/Libraries dengan nama View
+            ☐ trs copykan semua file dari '../persiapan/snipplets/app/Libraries/View/ ke folder yang dibuat tadi
+            ☐ Penjelasan ada file itu juga, jika belum paham isi dari file2 yang di copy tadi, gamasalah,
+            ☐ Yang penting km paham poin2 pentingnya:,
+            @poin2:
+              1. class TemplateEngine adalah pengganti function view bawaan CodeIgniter
+              2. Untuk memakai class TemplateEngine ini, file view harus di ubah menjadi class juga, bukan html aja.
+              3. setelah view dijadiin class, nanti harus extends BaseView
+    
+            ☐ Skrg mari kita demostrasikan cara pemakaian nya. kita ambil contoh view index.php
+            ☐ Pertama, kita buat class untuk nampung view index.php, namain apa aja terserah class nya, ditempatin di
+            ☐ folder frontend/app/Views/LandingPage ya. misal nama classnya LandingPageHome
+            ☐ skrg kita buat classnya
+            ☐ Setelah menonton video sebelumnya, coba km praktek-an, ubah View lain menjadi class. ATAU, ikuti step "Memisahkan Footer dan Navbar" dulu dibawah, baru buat view class lain.
+            ☐ Setelah semua tidak ada error, stage change file yang berubah di bagian folder frontend.
+            ☐ Beri message commit yang sesuai, contohnya: Class View dan TemplateEngine.
+            ☐ Commit dengan ctrl + Enter
+    
+          Memisahkan Footer dan Navbar dari View:
+            @catatan: kita tahu bahwa view landing page mempunyai footer dan navbar yang sama di tiap
+            page nya. maka kita coba pisahkan saja dari view utama nya.
+            ☐ buat folder baru di frontend/Views/LandingPage/ untuk menampung Navbar dan Footer, folder tersebut bisa dinamai apa aja, kalau ak sih seringnya tak namain "Partials", yang artinya "Bagian"
+            ☐ Kalau sudah buat folder, coba buat class View yang extends BaseView (@tips: bisa menggunakan snipplets) untuk menampung Navbar. namain class tsb: Navbar.php
+            ☐ pastekan html navbar yang sudah ak siapkan di folder '../persiapan/snipplets/app/Views/LandingPage/Partials/navbar.html' ke class Navbar tadi, lalu save.
+            ☐ Buat class View lain untuk Footer, di folder yang tadi (fronted/app/Views/LandingPage/Partials)
+            ☐ pastekan html footer yang sudah ak siapkan di folder '../persiapan/snipplets/app/Views/LandingPage/Partials/footer.html' ke class Footer tadi, lalu save.
+            ☐ buat abstract class untuk menampung Kerakngka View dari landingPage, yang berisi class Navbar, content, sama  class Footer . Namain class ini BaseLandingPage.php (buatnya di folder yang tadi, se folder sama Navbar dan Footer)
+              @catatan: jadi abstract class ini adalah class setengah jadi, ibaratnya cuma adonan, harus di proses/di extends lagi.
+              kayak cuma kerangka doang, baru isi Navbar dan Footer, untuk content page nya, nanti diisi di class yang extends class BaseLandingPage ini.
+            ☐ Untuk isi class BaseLandingPage ini, km bisa copy dari folder persiapan/snipplets/app/Views/LandingPage/Partials/BaseLandingPage.php (penjelasan ada disitu juga)
+            ☐ Setelah membuat class BaseLandingPage, skrg kita coba terapkan di salah satu View class landingpage. misalkan kita pakai class LandingPageHome yang dibuat di langkah "Buat Class Untuk Nampilin View".
+            ☐ Di class LandingPageHome.php , class tersebut masih meng-extends class BaseView , ganti dengan meng-extends BaseLandingPage, @screenshot: '../persiapan/screenshot/ChangeExtendsToBaseLandingPage.PNG'
+            ☐ Disitu class LandingPageHome.php masih error karena belum meng-implement / membuat function 'content'. @screenshot: '../persiapan/screenshot/BaseLandingPageExtendsErrorNotYetImplementMethod.PNG'
+              @penjelasan: jadi, seperti yang telah disebutkan di class BaseLandingPage, class tersebut merupakan 'abstract class',
+              atau gampangnya class setengah jadi.
+              karena 'abstract class' , maka class yang meng-extendsnya (misal: class LandingPageHome) harus melengkapi function yang
+              belum jadi. disini contohnya mengimplementasikan function content.
+              jadi kita akan membuat fucntion content() di class LandingPageHome yang nanti berisi html content dari Page Home nya Landingpage.
+            ☐ Untuk mengatasi error tersebut, maka kita harus membuat function yang disarankan error tsb, yaitu fucntion content() @screenshot: '../persiapan/screenshot/FunctionContentContractBaseLandingPage.PNG'
+            ☐ skrg ketikan: htParse  , di dalam function content() tadi dan tekan enter jika ada sugesti , ini akan menambahkan snipplets untuk memparsing html. @screenshot: '../persiapan/screenshot/htParseDiDalamFunctionContent.PNG'
+            ☐ Nanti hasilnya akan seperti ini: @screenshot: '../persiapan/screenshot/htParseSnipplets.PNG'
+            ☐ Kalau sudah begitu maka cut content dari function render() , hanya content saja tanpa navbar maupun footer, lihat @video: https://youtu.be/Oy7LsqJdaYA (Cut Content LandingPge.php)
+            ☐ Disitu hanya content home saja tanpa navbar atau footer karena navbar dan footer sudah ada di BaseLandingPage,
+            ☐ Serta function render LandingPageHome di delete karena sudah di wakilkan di class BaseLandingPage. @ingat: meng-extends class = mencopy function yang ada di class yg di-extends / Base class.
+    
+            ☐ Skrg baru coba buat view lain menjadi class dengan meng-extends BaseLandingPage.
+            ☐ Jika sudah ubah view lain, di contoller LandingPage juga di ubah pake TemplateEngine. @screenshot: '../persiapan/screenshot/ControllerLandingPageTemplateEngine.PNG'
+            ☐ Jika sudah berhasil dan tidak ada error, maka view yang bukan class bisa di delete (index.php, about.php, dll)
+            ☐ kemudian, stage change file yang berubah di folder frontend,
+            ☐ Kasih message yang sesuai, seperti: 'Menambahkan Navbar & Footer, serta membuat view class dari BaseLandingPage'.
+            ☐ commit dengan ctrl + Enter.
+            ☐ Oiya, class View yang sudah jadi bisa dilihat di folder '../persiapan/snipplets/app/Views/LandingPage' untuk referensi.
+
+          Manual Routing:
+            @catatan: Seperti yang kukatakan di awal-awal tutorial, jika kita bergantung pada fitur autorouting
+            milik Codeigniter, kita tidak bisa merapikan/kurang bebas dalam menentukan url apa yang menuju Controller function apa.
+            Nah di step ini, kita akan mengubah routing function index() (milik controller LandingPage.php) agar bisa
+            diakses pada url: frontend.gdps.localhost/  (yang tadinya hanya bisa diakses di url: frontend.gdps.localhost/landingpage/index)
+            ☐ Pertama, buka file frontend/app/Config/Routes.php
+            ☐ lalu cari line yang berisi: $routes->setAutoRoute(true);
+            ☐ ubah jadi false: $routes->setAutoRoute(false); lihat @screenshot: '../persiapan/screenshot/SetAutoRouteFalse.jpg'
+            ☐ lalu copy code di file '../persiapan/snipplets/app/Config/Routes.php'
+            ☐ pastekan ke file '../frontend/app/Config/Routes.php' di bagian bawah line: $routes->get('/', 'Home::index');
+            ☐ Lalu comment line: $routes->get('/', 'Home::index'); lihat @screenshot: '../persiapan/screenshot/CommentRoutesGetHome.jpg';
+            ☐ Setelah itu, di bagian yg dicopy td, cari kata 'RouteCollection', dan tekan ctrl+spasi, nanti akan ada sugestion, pilih yang RouteCollection. lihat @screenshot: '../persiapan/screenshot/SuggestionRouteCollection.jpg'
+            ☐ Setelah itu buat file RoutesConstant.php di folder frontend/app/Config/
+            ☐ Isi file tersebut bisa di copy di file '../persiapan/snipplets/app/Config/RoutesConstant.php'
+            ☐ Setelah di pastekan, kita kembali ke file frontend/app/Config/Routes.php 
+            ☐ di bagian routing yang tadi, kita buat alias untuk tiap2 route, alias routing ditempatkan di argumen ke-3 function get() syntaxnya: ['as' => {aliasdisini} ]. lihat @screenshot: '../persiapan/screenshot/RoutesAlias.jpg'
+            ☐ atau kalo bingung bisa copy dari file '../persiapan/snipplets/app/Config/RoutesWithAlias
+            ☐ setelah mensetting alias, tinggal kita panggil routingnya di view class:
+            ☐ Buka file '../frontend/app/Views/LandingPage/Partials/Navbar.php', lalu cari href yang masih menunju ke url: landingpage/{blablabla} . 
+            ☐ caranya kita pake fitur find (ctrl +F), dan ketikan: 'landingpage/' . lihat @screenshot: '../persiapan/screenshot/SearchLandingPageHref.jpg'
+            ☐ lalu ubah href tsb untuk menggunakan alias yg tadi telah dibuat, dan ga pake base_url() lagi, tp pake route_to() . lihat @screenshot: '../persiapan/screenshot/ChangeToRoutesAlias.jpg'
+              @catatan: fungsi route_to() ini nanti akan membuat url sesuai route yang sudah didefinisikan di Routes.php melalui alias (contoh alias: RoutesConstant::LANDINGPAGE_HOME)
+              @ingat: fungsi route_to() ini hanya untuk digunakan oleh href yang menunju page lain, 
+              untuk url yg menuju assets(misal: gambar, js, dan css) masih menggunakan base_url()
+            ☐ Skrg kita ubah url yang untuk assets agar menggunakan url dari class RoutesConstant juga, tujuannya untuk memudahkan edit url jika url berubah (maksudnya ubahnya di satu tempat aja)
+              @catatan: 
+              url asset yang dimaksud adalah ini, @screenshot: '../persiapan/screenshot/ContohURLAssets.jpg' , 
+              bagian 'assets/landing/' akan diubah untuk mengakses variable RoutesConstant::LANDINGPAGE_ASSETS_RELATIVE_PATH @screenshot: '../persiapan/screenshot/ContohGantiDenganRoutesConstant.jpg'
+              variable RoutesConstant sebenarnya juga berisi 'assets/landing/' , lalu kenapa di ganti kalau intinya sama saja??
+              ini berguna jika url/letak folder assets/landing nya berubah, maka kita hanya edit di satu tempat aja, yaitu di variable LANDINGPAGE_ASSETS_RELATIVE_PATH tadi.
+            ☐ Baik, untuk cara mengganti url assets/landing/ tadi, kita pakai fitur sidebar search milik VSCode (ctrl+shift+F) karena url ini berada di beberapa file.
+            ☐ Setelah sidebar search terbuka, tekan button '>', dan isikan value-value dibawah:
+              @value:
+                search: 'assets/landing/'  (pake tanda petiknya ya)
+                replace: RoutesConstant::LANDINGPAGE_ASSETS_RELATIVE_PATH
+                files to include: ./frontend
+                files to exclude: TODO, RoutesConstant.php
+              untuk lebih jelasnya, lihat @screenshot: '../persiapan/screenshot/SearchAndReplaceURLAssetsLanding.jpg'
+              @note: kalau udh isi sesuai screenshot diatas, maka tekan button yang ak kasih panah, itu akan mereplace semua string 'assets/landing/' menjadi RoutesConstant::LANDINGPAGE_ASSETS_RELATIVE_PATH
+            ☐ Setelah ikuti langkah diatas, skrg check view class (misal: LandingPageHome.php, LandingPageAbout.php, dll) dan clas BaseLandingPage.php
+            ☐ Pasti akan ada error di bagian RoutesConstant, tekan ctrl+spasi di akhir kata RoutesConstant, maka akan muncul sugestion, pilih dan tekan enter, maka error akan hilang, @screenshot: '../persiapan/screenshot/RoutesConstantFixInViewClass.jpg'
+            ☐ lakukan ke semua view class landingpage
+            ☐ Setelah itu, skrg test akses di browser, apakah ada error atau tidak, nyalakan xampp(Run as administrator) dan buka frontend.gdps.localhost 
+            ☐ Jika tidak ada error, maka stage chage file yang di bagian frontend.
+            ☐ Kasih message yang sesuai, misal: Ubah ke Manual Routing
+            ☐ commit dengan ctrl+Enter

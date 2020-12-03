@@ -1,0 +1,47 @@
+{
+    "Class Scaffolding With Extends": {
+		"prefix": ["<?clex"],
+		"body": [
+            "<?php namespace $1", 
+            "", 
+            "", 
+            "class ${TM_FILENAME_BASE} extends $2", 
+            "{", 
+                "\t$0", 
+            "}"
+        ]
+    },
+    
+    "TemplateEngine View Class": {
+        "prefix": ["<?view"],
+        "body": [
+            "<?php namespace $1",
+            "",
+            "",
+            "class ${TM_FILENAME_BASE} extends $2",
+            "{",
+                "\tpublic function render() : string {",
+                    "\t\t",
+                    "\t\t\\$this->startHtmlParsing(); ?>",
+                        "\t\t\t",
+                        "\t\t\t<!-- Paste HTML disini -->",
+                        "\t\t\t$0",
+                        "\t\t\t",
+                    "\t\t<?php return \\$this->endParsingAndGetHtml();",
+                "\t}",
+            "}"
+        ]
+    },
+
+	"Function Template Engine HTML Parsing": {
+		"prefix": ["htParse"],
+		"body": [
+			"\\$this->startHtmlParsing(); ?>", 
+            "", 
+                "\t<!-- Masukkan HTML disini -->",
+				"\t$0", 
+			"", 
+			"<?php return \\$this->endParsingAndGetHtml();"
+		]
+	}
+}
